@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculando el IMC</title>
+</head>
+<body>
+    <h1>Indice de Masa Corporal</h1>
+    <hr>
+    <label for="nombre">Nombre:  </label><input name="nombre" id="nombre" type="text">
+    <br>
+    <br>
+    <label for="peso">Peso:  </label><input name="peso" id="peso" type="number">
+    <br>
+    <br>
+    <label for="altura">Altura:  </label><input name="altura" id="altura" type="number">
+    <br>
+    <br>
+    <input name="altura" id="altura" type="button" value="Calcular" onclick="muestraIMC()">
+    <br>
+    <br>
+    <br>
+    <hr>
+    <div id="respuesta"></div>
+    <br>
+    <script>
+        function saltarLinea(){
+            document.write("<br>");
+            document.write("<br>");
+            document.write("<br>");
+        }
+        function imprime(frase){
+            document.getElementById("respuesta").innerHTML = frase;
+            saltarLinea();
+        }
+        function calculaIMC(p,a){
+            return p / (a * a);
+        }
+        function muestraIMC(){
+            let nombre = document.getElementById("nombre").value;
+            let peso = document.getElementById("peso").value;
+            let altura = document.getElementById("altura").value;
+            let imc = calculaIMC(peso,altura);
+            let frase = "El IMC de " + nombre + " es: " + imc;
+            imprime(frase);
+        }
+    </script>
+</body>
+</html>
